@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tags for SEO & Project Submission -->
+    <meta name="description" content="Official Smart City Portal - A modern, sustainable, and citizen-friendly digital city platform.">
+    <meta name="keywords" content="Smart City, Urban Planning, e-Governance, Healthcare, Smart Transit, Digital Education">
+    <meta name="author" content="B.Tech 1st Year Engineering Project">
+    <title>NovaPolis | Official Smart City Portal</title>
+    
+    <!-- Link to External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts for Modern Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========================================================
+         SECTION 1: NAVIGATION BAR WITH LOGO
+         Pure CSS mobile responsive menu using the checkbox hack
+         ======================================================== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Brand Logo -->
+            <a href="#hero" class="logo">
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </span>
+                <span class="logo-text">Nova<span class="highlight">Polis</span></span>
+                <span class="badge">Smart City</span>
+            </a>
+
+            <!-- Pure CSS Hamburger Menu Toggle (No JavaScript Required) -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#stats" class="nav-link">Overview</a></li>
+                <li><a href="#transport" class="nav-link">Mobility</a></li>
+                <li><a href="#healthcare" class="nav-link">Healthcare</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#emergency" class="nav-link emergency-pill">🚨 Emergency</a></li>
+                <li><a href="#locations" class="nav-link">Landmarks</a></li>
+                <li><a href="#contact" class="btn btn-primary nav-cta">Citizen Desk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ========================================================
+             SECTION 2: HERO SECTION
+             Full-width banner with rich background, tagline & CTA buttons
+             ======================================================== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span> Next-Generation Urban Ecosystem
+                </div>
+                <h1 class="hero-title">
+                    Welcome to <span class="text-gradient">NovaPolis</span><br>
+                    Intelligent, Green &amp; Citizen-First
+                </h1>
+                <p class="hero-subtitle">
+                    Powering a high-tech sustainable metropolis through renewable energy, 
+                    zero-emission transit, smart health grids, and seamless digital public services.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
+                    <a href="#emergency" class="btn btn-secondary">Emergency 24x7</a>
+                </div>
+
+                <!-- Hero Feature Highlights -->
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-check">&#10003;</span> 100% Solar-Powered Grid
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-check">&#10003;</span> AI-Driven Traffic Flow
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-check">&#10003;</span> 5G Connected Infrastructure
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-check">&#10003;</span> Free Public High-Speed Wi-Fi
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 3: CITY STATISTICS
+             Visual indicators showing population, hospitals, buses & schools
+             ======================================================== -->
+        <section id="stats" class="stats-section section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Urban Metrics</span>
+                    <h2 class="section-title">City at a Glance</h2>
+                    <p class="section-description">
+                        Real-time indicators showing urban efficiency, public welfare infrastructure, and quality of life.
+                    </p>
+                </div>
+
+                <div class="stats-grid">
+                    <!-- Stat Card 1: Population -->
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper blue">
+                            👥
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">2.8M+</h3>
+                            <p class="stat-label">Happy Citizens</p>
+                            <span class="stat-sub">99.4% Digital Literacy Rate</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 2: Hospitals -->
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper green">
+                            🏥
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">45+</h3>
+                            <p class="stat-label">Smart Hospitals</p>
+                            <span class="stat-sub">12,000+ ICU &amp; Emergency Beds</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 3: Buses & Transit -->
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper blue">
+                            🚌
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">1,250+</h3>
+                            <p class="stat-label">Electric City Buses</p>
+                            <span class="stat-sub">100% Zero-Carbon Transit Fleet</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 4: Schools -->
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper green">
+                            🏫
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">380+</h3>
+                            <p class="stat-label">Digital Smart Schools</p>
+                            <span class="stat-sub">AI &amp; STEM Enhanced Curriculum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 4: TRANSPORTATION SERVICES
+             Public mobility, smart metro, e-buses & intelligent traffic
+             ======================================================== -->
+        <section id="transport" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Next-Gen Mobility</span>
+                    <h2 class="section-title">Smart Transportation System</h2>
+                    <p class="section-description">
+                        Integrated, fast, and eco-friendly transit networks connecting every corner of the metropolitan area.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Transport Card 1: Metro -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/metro.jpg" alt="High-speed city metro train" loading="lazy">
+                            <span class="card-badge">Line 1 - 4 Active</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🚆</div>
+                            <h3 class="card-title">Metro Rail Expressway</h3>
+                            <p class="card-text">
+                                Fully automated, high-speed driverless trains equipped with contactless QR/NFC ticketing 
+                                and real-time station arrival monitors.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Every 3 minutes frequency</li>
+                                <li>100% Air-conditioned coaches</li>
+                                <li>Direct Airport Link connector</li>
+                            </ul>
+                            <a href="#contact" class="card-link">View Route Map &amp; Fares &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Transport Card 2: Electric Buses -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/bus.jpg" alt="Modern green electric city bus" loading="lazy">
+                            <span class="card-badge green">Eco-Friendly</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🚌</div>
+                            <h3 class="card-title">Green EV Bus Fleet</h3>
+                            <p class="card-text">
+                                Quiet, zero-emission electric buses operating across 120 city routes with live GPS bus 
+                                tracking and disability-accessible low floors.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Mobile app live bus tracking</li>
+                                <li>USB mobile charging on seats</li>
+                                <li>Digital pass &amp; smart tap cards</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Bus Schedules &amp; Passes &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Transport Card 3: Smart Traffic Grid -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/traffic.jpg" alt="Intelligent traffic command center and roads" loading="lazy">
+                            <span class="card-badge">AI Monitored</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🚦</div>
+                            <h3 class="card-title">Adaptive Traffic Control</h3>
+                            <p class="card-text">
+                                Dynamic AI signal timing optimizes traffic flow, clears corridors for emergency ambulances, 
+                                and cuts intersection waiting times by 38%.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Automated incident detection</li>
+                                <li>Priority green waves for ambulances</li>
+                                <li>Smart parking occupancy sensors</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Live Traffic Dashboard &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 5: HOSPITALS & HEALTHCARE
+             Public medical centers, telemedicine and rapid emergency care
+             ======================================================== -->
+        <section id="healthcare" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Citizen Well-being</span>
+                    <h2 class="section-title">Hospitals &amp; Smart Healthcare</h2>
+                    <p class="section-description">
+                        World-class healthcare accessible to every resident, backed by digital health records and unified emergency care.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Healthcare Card 1 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/hospital.jpg" alt="Modern multispeciality smart city hospital" loading="lazy">
+                            <span class="card-badge">Tier-1 Medical Hub</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🏥</div>
+                            <h3 class="card-title">Central Multi-Speciality Hospital</h3>
+                            <p class="card-text">
+                                A 1,500-bed premier state medical institute providing advanced cardiology, oncology, 
+                                neurology, and robotic surgeries.
+                            </p>
+                            <ul class="feature-list">
+                                <li>24/7 Level-1 Trauma Care</li>
+                                <li>Fully robotic operation theatres</li>
+                                <li>Integrated central pharmacy</li>
+                            </ul>
+                            <a href="tel:108" class="card-link">Call Emergency Desk: 108 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Healthcare Card 2 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/telemedicine.jpg" alt="Digital doctor consultation on tablet" loading="lazy">
+                            <span class="card-badge green">e-Health Online</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">💻</div>
+                            <h3 class="card-title">Digital Tele-Consultation</h3>
+                            <p class="card-text">
+                                Connect with certified general physicians and specialists from the comfort of your home 
+                                within 15 minutes through video diagnosis.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Instant digital e-prescriptions</li>
+                                <li>Home delivery of generic medicines</li>
+                                <li>Unified Citizen Health ID card</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Book Digital OPD &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Healthcare Card 3 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/emergency.jpg" alt="Emergency paramedic care unit" loading="lazy">
+                            <span class="card-badge red-badge">Fast Dispatch</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🚑</div>
+                            <h3 class="card-title">Smart Ambulance Grid</h3>
+                            <p class="card-text">
+                                Satellite-linked ICU ambulances stationed across all wards ensure an average emergency 
+                                arrival time of under 8 minutes.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Live patient telemetry to hospital</li>
+                                <li>Advanced life support (ALS) certified</li>
+                                <li>Automated traffic signal override</li>
+                            </ul>
+                            <a href="tel:108" class="card-link highlight-red">Toll-Free Ambulance: 108 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 6: EDUCATION & SMART SCHOOLS
+             Digital classrooms, universities, research & public libraries
+             ======================================================== -->
+        <section id="education" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Empowering Minds</span>
+                    <h2 class="section-title">Education &amp; Smart Schools</h2>
+                    <p class="section-description">
+                        Nurturing future innovators with digital learning pods, coding centers, and world-class universities.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Education Card 1 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/school.jpg" alt="Students in modern smart classroom" loading="lazy">
+                            <span class="card-badge">Grades K-12</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🏫</div>
+                            <h3 class="card-title">Interactive Smart Schools</h3>
+                            <p class="card-text">
+                                Over 380 municipal schools transformed into high-tech learning spaces featuring digital smart boards, 
+                                robotics clubs, and 3D science simulations.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Free digital tablets for students</li>
+                                <li>AI-adaptive personalized learning</li>
+                                <li>Nutritious organic meal programs</li>
+                            </ul>
+                            <a href="#contact" class="card-link">School Admissions &amp; Wards &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Education Card 2 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/university.jpg" alt="University campus building" loading="lazy">
+                            <span class="card-badge green">Higher Ed</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🎓</div>
+                            <h3 class="card-title">Metropolitan Tech University</h3>
+                            <p class="card-text">
+                                A world-ranked institution offering cutting-edge undergraduate and postgraduate programs 
+                                in AI, Robotics, Renewable Energy, and Smart Architecture.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Student startup incubation center</li>
+                                <li>Advanced IoT &amp; CleanTech testbeds</li>
+                                <li>Global industry research ties</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Campus Portal &amp; Programs &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Education Card 3 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/library.jpg" alt="Modern public digital library" loading="lazy">
+                            <span class="card-badge">Open Access</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">📚</div>
+                            <h3 class="card-title">Central Digital Library Hub</h3>
+                            <p class="card-text">
+                                A community center featuring quiet study pods, 150,000+ digital journals, maker labs, 
+                                and community coding workshops for all ages.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Free Gigabit Wi-Fi connectivity</li>
+                                <li>Audiobook &amp; e-Reader lending</li>
+                                <li>Open 7 days a week, 7 AM - 10 PM</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Register Digital Membership &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 7: PUBLIC SERVICES
+             e-Governance, clean water, renewable energy and waste recycling
+             ======================================================== -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Civic Administration</span>
+                    <h2 class="section-title">Digital Public Services</h2>
+                    <p class="section-description">
+                        Transparent, paperless, and frictionless government services delivered directly to citizens.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Service Card 1 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/services.jpg" alt="Citizen using digital municipal office service" loading="lazy">
+                            <span class="card-badge">100% Online</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">🏛️</div>
+                            <h3 class="card-title">e-Governance Citizen Desk</h3>
+                            <p class="card-text">
+                                Apply for birth/death certificates, trade licenses, building permits, and pay property 
+                                taxes in under 3 minutes with zero physical paperwork.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Direct digital certificate download</li>
+                                <li>Unified citizen grievance tracker</li>
+                                <li>Transparent fee structure</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Access e-Gov Portal &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 2 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/water-grid.jpg" alt="Clean water supply and automated reservoir" loading="lazy">
+                            <span class="card-badge green">Pure &amp; Automated</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">💧</div>
+                            <h3 class="card-title">Smart Water &amp; Waste Grid</h3>
+                            <p class="card-text">
+                                Real-time IoT sensors monitor water purity 24/7, detect underground pipe leaks, 
+                                and manage smart pneumatic garbage chutes across city sectors.
+                            </p>
+                            <ul class="feature-list">
+                                <li>24x7 potable drinking tap water</li>
+                                <li>Automated sensor-based bill generation</li>
+                                <li>Zero-landfill segregated recycling</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Water Quality Report &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 3 -->
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <img src="images/green-energy.jpg" alt="Solar panels and clean wind turbines" loading="lazy">
+                            <span class="card-badge">Zero Carbon</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-icon">⚡</div>
+                            <h3 class="card-title">Renewable Clean Power</h3>
+                            <p class="card-text">
+                                Over 65% of municipal power is generated from rooftop solar microgrids and suburban wind farms, 
+                                keeping air pollution index (AQI) under 35.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Smart automated LED streetlamps</li>
+                                <li>Subsidies for rooftop solar setup</li>
+                                <li>Electric vehicle home charging credits</li>
+                            </ul>
+                            <a href="#contact" class="card-link">Apply for Solar Subsidy &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 8: EMERGENCY CONTACT INFORMATION
+             High-priority emergency hotlines: Police 112, Ambulance 108, Fire 101
+             ======================================================== -->
+        <section id="emergency" class="emergency-section section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="emergency-tag">24x7 Helpdesk</span>
+                    <h2 class="section-title text-white">Emergency Services &amp; Rapid Response</h2>
+                    <p class="section-description text-light">
+                        Direct toll-free lines for immediate life-safety assistance. Calls are answered within 3 seconds.
+                    </p>
+                </div>
+
+                <div class="emergency-grid">
+                    <!-- Emergency 1: Police 112 -->
+                    <div class="emergency-card">
+                        <div class="emergency-pulse-ring"></div>
+                        <div class="emergency-badge police-badge">National Helpline</div>
+                        <div class="emergency-icon">👮</div>
+                        <h3 class="emergency-title">City Police Control</h3>
+                        <p class="emergency-desc">Immediate law enforcement, safety assistance, and rapid tactical response team.</p>
+                        <a href="tel:112" class="emergency-btn police-btn">
+                            <span class="call-icon">📞</span>
+                            <span class="call-number">112</span>
+                        </a>
+                        <span class="emergency-toll-label">Toll-Free • 24x7 Available</span>
+                    </div>
+
+                    <!-- Emergency 2: Ambulance 108 -->
+                    <div class="emergency-card featured-emergency">
+                        <div class="emergency-pulse-ring"></div>
+                        <div class="emergency-badge medical-badge">Medical Priority</div>
+                        <div class="emergency-icon">🚑</div>
+                        <h3 class="emergency-title">Medical &amp; Ambulance</h3>
+                        <p class="emergency-desc">Rapid trauma care, mobile ICU dispatch, and nearest hospital admission coordinator.</p>
+                        <a href="tel:108" class="emergency-btn medical-btn">
+                            <span class="call-icon">📞</span>
+                            <span class="call-number">108</span>
+                        </a>
+                        <span class="emergency-toll-label">Toll-Free • Instant GPS Dispatch</span>
+                    </div>
+
+                    <!-- Emergency 3: Fire 101 -->
+                    <div class="emergency-card">
+                        <div class="emergency-pulse-ring"></div>
+                        <div class="emergency-badge fire-badge">Fire &amp; Rescue</div>
+                        <div class="emergency-icon">🚒</div>
+                        <h3 class="emergency-title">Fire Department</h3>
+                        <p class="emergency-desc">Firefighting, building hazard control, chemical spill, and high-rise rescue operations.</p>
+                        <a href="tel:101" class="emergency-btn fire-btn">
+                            <span class="call-icon">📞</span>
+                            <span class="call-number">101</span>
+                        </a>
+                        <span class="emergency-toll-label">Toll-Free • 24x7 Active</span>
+                    </div>
+                </div>
+
+                <!-- Secondary Emergency Helplines -->
+                <div class="secondary-emergency-box">
+                    <h4 class="secondary-title">Additional Dedicated Civic Helplines:</h4>
+                    <div class="secondary-badges">
+                        <a href="tel:1091" class="sub-helpline"><span>👩 Women Safety:</span> <strong>1091</strong></a>
+                        <a href="tel:1098" class="sub-helpline"><span>👶 Child Protection:</span> <strong>1098</strong></a>
+                        <a href="tel:1077" class="sub-helpline"><span>🌪️ Disaster Control:</span> <strong>1077</strong></a>
+                        <a href="tel:1095" class="sub-helpline"><span>🚗 Traffic Control:</span> <strong>1095</strong></a>
+                        <a href="tel:1912" class="sub-helpline"><span>⚡ Power Outage:</span> <strong>1912</strong></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 9: IMPORTANT CITY LOCATIONS
+             Landmarks, cyber parks, civic plaza and green waterfront
+             ======================================================== -->
+        <section id="locations" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Urban Landmarks</span>
+                    <h2 class="section-title">Key City Locations</h2>
+                    <p class="section-description">
+                        Explore iconic public hubs, technology districts, and ecological sanctuaries shaping our metropolis.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Location 1: Cyber City -->
+                    <article class="service-card location-card">
+                        <div class="card-image-box">
+                            <img src="images/techpark.jpg" alt="Cyber tech park high-rise buildings" loading="lazy">
+                            <span class="card-badge">Sector 24</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="loc-pin">📍 North Corridor</span>
+                                <span class="loc-hours">Open 24/7</span>
+                            </div>
+                            <h3 class="card-title">CyberTech Silicon Hub</h3>
+                            <p class="card-text">
+                                The financial and technological engine of the city, hosting over 500 tech companies, 
+                                AI labs, fintech towers, and modern co-working campuses.
+                            </p>
+                            <div class="landmark-amenities">
+                                <span class="amenity-pill">Metro Direct</span>
+                                <span class="amenity-pill">EV Stations</span>
+                                <span class="amenity-pill">Food Plaza</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Location 2: Civic Center -->
+                    <article class="service-card location-card">
+                        <div class="card-image-box">
+                            <img src="images/civic.jpg" alt="City central administrative plaza and hall" loading="lazy">
+                            <span class="card-badge green">Civic Zone</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="loc-pin">📍 Central Square</span>
+                                <span class="loc-hours">9:00 AM - 6:00 PM</span>
+                            </div>
+                            <h3 class="card-title">Town Hall &amp; Civic Plaza</h3>
+                            <p class="card-text">
+                                The administrative heart of NovaPolis, containing the Mayor's office, citizen convenience center, 
+                                public amphitheatre, and heritage clock tower.
+                            </p>
+                            <div class="landmark-amenities">
+                                <span class="amenity-pill">e-Service Desks</span>
+                                <span class="amenity-pill">Public Lawn</span>
+                                <span class="amenity-pill">Underground Parking</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Location 3: Eco Park -->
+                    <article class="service-card location-card">
+                        <div class="card-image-box">
+                            <img src="images/ecopark.jpg" alt="Lush green botanical eco park and walking trail" loading="lazy">
+                            <span class="card-badge green">Nature Sanctuary</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="loc-pin">📍 South Lakefront</span>
+                                <span class="loc-hours">5:30 AM - 9:00 PM</span>
+                            </div>
+                            <h3 class="card-title">Nova Lakefront Eco-Park</h3>
+                            <p class="card-text">
+                                A 250-acre urban forest featuring rainwater harvesting lakes, solar-lit jogging tracks, 
+                                butterfly conservation gardens, and open-air meditation zones.
+                            </p>
+                            <div class="landmark-amenities">
+                                <span class="amenity-pill">Bicycle Tracks</span>
+                                <span class="amenity-pill">Boating Club</span>
+                                <span class="amenity-pill">Bird Sanctuary</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             SECTION 10: CONTACT SECTION
+             Citizen support form, office location & municipal details
+             ======================================================== -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Reach Out</span>
+                    <h2 class="section-title">Citizen Helpdesk &amp; Feedback</h2>
+                    <p class="section-description">
+                        Have a query, suggestion, or municipal complaint? Submit your request and our digital team will respond within 24 hours.
+                    </p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Left Column: Contact Form (Pure HTML5 validation) -->
+                    <div class="contact-form-card">
+                        <h3 class="form-title">Send a Civic Message</h3>
+                        <form action="#contact" method="GET" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name <span class="req">*</span></label>
+                                    <input type="text" id="full-name" name="name" placeholder="e.g. Ramesh Kumar" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-addr">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="email-addr" name="email" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone-no">Phone Number</label>
+                                    <input type="tel" id="phone-no" name="phone" placeholder="+91 98765 43210" pattern="[0-9+ ]{10,15}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dept-select">Department / Topic <span class="req">*</span></label>
+                                    <select id="dept-select" name="department" required>
+                                        <option value="" disabled selected>Select a Department</option>
+                                        <option value="transport">Public Transit &amp; Metro</option>
+                                        <option value="healthcare">Hospitals &amp; Public Health</option>
+                                        <option value="education">Smart Schools &amp; Scholarships</option>
+                                        <option value="utilities">Water, Sanitation &amp; Power</option>
+                                        <option value="grievance">General Civic Grievance</option>
+                                        <option value="suggestions">Smart City Innovation Ideas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Detailed Message <span class="req">*</span></label>
+                                <textarea id="message" name="message" rows="5" placeholder="Please describe your inquiry or feedback in detail..." required></textarea>
+                            </div>
+
+                            <div class="form-checkbox-group">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I confirm that the details provided are accurate and authorize NovaPolis Municipal Corp to respond.</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span>Submit Request</span> ✉️
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Municipal Information Details -->
+                    <div class="contact-info-card">
+                        <h3 class="info-title">Municipal Secretariat</h3>
+                        <p class="info-intro">
+                            Visit our citizen service center during working hours or connect directly with our departments.
+                        </p>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-icon">📍</span>
+                                <div>
+                                    <strong>City Administration Complex</strong>
+                                    <p>Plot 01, Nova Boulevard, Sector 1<br>Central Civic Square, NovaPolis - 500001</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">📞</span>
+                                <div>
+                                    <strong>Citizen Helpline (General)</strong>
+                                    <p><a href="tel:18001234567">1800-123-4567</a> (Toll-Free, 8 AM - 8 PM)</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">✉️</span>
+                                <div>
+                                    <strong>Official Support Email</strong>
+                                    <p><a href="mailto:support@novapolis.gov.in">support@novapolis.gov.in</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">🕒</span>
+                                <div>
+                                    <strong>Citizen Service Hours</strong>
+                                    <p>Monday to Friday: 9:00 AM – 5:30 PM<br>Saturday: 9:00 AM – 1:00 PM (Closed on Sundays)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Notice Box -->
+                        <div class="quick-notice-box">
+                            <span class="notice-badge">Notice</span>
+                            <p>For urgent life-threatening emergencies, do not use the web form. Call <strong>112</strong> or <strong>108</strong> immediately.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ========================================================
+         FOOTER
+         Branding, directory links, social presence & student project credit
+         ======================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand & Bio -->
+                <div class="footer-col brand-col">
+                    <a href="#hero" class="logo footer-logo">
+                        <span class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </span>
+                        <span class="logo-text">Nova<span class="highlight">Polis</span></span>
+                    </a>
+                    <p class="footer-desc">
+                        A modern, sustainable and digitally connected smart city model built for responsive public welfare, 
+                        clean environment, and economic growth.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#contact" class="social-link" title="Twitter / X">𝕏</a>
+                        <a href="#contact" class="social-link" title="Facebook">f</a>
+                        <a href="#contact" class="social-link" title="LinkedIn">in</a>
+                        <a href="#contact" class="social-link" title="YouTube">▶</a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home Portal</a></li>
+                        <li><a href="#stats">City Statistics</a></li>
+                        <li><a href="#transport">Metro &amp; Buses</a></li>
+                        <li><a href="#healthcare">Smart Hospitals</a></li>
+                        <li><a href="#education">Schools &amp; Colleges</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Public Services -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Citizen Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">e-Governance Desk</a></li>
+                        <li><a href="#services">Water &amp; Sanitation</a></li>
+                        <li><a href="#services">Solar Clean Energy</a></li>
+                        <li><a href="#locations">City Landmarks</a></li>
+                        <li><a href="#contact">Citizen Helpdesk</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Emergency Contacts -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Emergency Hotlines</h4>
+                    <ul class="footer-emergency-list">
+                        <li><span>Police:</span> <a href="tel:112">112</a></li>
+                        <li><span>Ambulance:</span> <a href="tel:108">108</a></li>
+                        <li><span>Fire Service:</span> <a href="tel:101">101</a></li>
+                        <li><span>Women Helpline:</span> <a href="tel:1091">1091</a></li>
+                        <li><span>Disaster Management:</span> <a href="tel:1077">1077</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 NovaPolis Smart City Municipal Authority. All Rights Reserved.</p>
+                <p class="project-credit">Designed &amp; Developed as a <strong>B.Tech 1st Year Engineering Project</strong> using pure HTML5 &amp; CSS3.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1415 @@
+/* ========================================================
+   PROJECT: NovaPolis Smart City Web Portal
+   TECH STACK: Pure HTML5 & CSS3 (Zero JavaScript, No Frameworks)
+   LEVEL: B.Tech 1st Year Engineering Project
+   COLOR THEME: Modern Blue, Eco Green, Crisp White
+   ======================================================== */
+
+/* ========================================================
+   1. CSS CUSTOM PROPERTIES (VARIABLES)
+   Centralized colors, typography, transitions & shadows
+   ======================================================== */
+:root {
+    /* Brand Primary Colors (Blue Palette) */
+    --primary-blue: #2563eb;         /* Vibrant royal blue */
+    --primary-blue-dark: #1d4ed8;    /* Dark royal blue for hover */
+    --primary-blue-deep: #0f172a;    /* Deep navy for headings & hero */
+    --primary-blue-light: #eff6ff;   /* Soft blue tint background */
+    --primary-blue-border: #bfdbfe;  /* Subtle blue border */
+
+    /* Brand Eco Colors (Green Palette) */
+    --eco-green: #10b981;            /* Fresh emerald green */
+    --eco-green-dark: #059669;       /* Deep green */
+    --eco-green-light: #ecfdf5;      /* Minty soft background */
+    --eco-green-border: #a7f3d0;     /* Mint border */
+
+    /* Emergency Alert Colors */
+    --alert-red: #ef4444;            /* Emergency red */
+    --alert-red-dark: #dc2626;       /* Deep emergency red */
+    --alert-red-light: #fef2f2;      /* Emergency soft background */
+
+    /* Neutral Colors (Slate & White) */
+    --color-white: #ffffff;
+    --color-bg-light: #f8fafc;       /* Light slate background */
+    --color-bg-card: #ffffff;
+    --color-text-main: #334155;      /* Main reading text (slate 700) */
+    --color-text-heading: #0f172a;   /* Primary headings (slate 900) */
+    --color-text-muted: #64748b;     /* Subtitles and footnotes */
+    --color-border: #e2e8f0;         /* Standard border color */
+
+    /* Typography */
+    --font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+    /* Shadows & Radii */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 20px 25px -5px rgba(37, 99, 235, 0.12), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* ========================================================
+   2. GLOBAL RESET & BASE STYLES
+   Smooth scrolling, box-sizing and clean font defaults
+   ======================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Common Layout Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-heading);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Section Header Shared Component */
+.section-header {
+    margin-bottom: 48px;
+}
+
+.section-header.text-center {
+    text-align: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--primary-blue);
+    background-color: var(--primary-blue-light);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 12px;
+    border: 1px solid var(--primary-blue-border);
+}
+
+.section-title {
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+    color: var(--color-text-heading);
+    letter-spacing: -0.5px;
+}
+
+.section-description {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 26px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-normal);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), #1e40af);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-blue-dark), #172554);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--primary-blue-deep);
+    transform: translateY(-2px);
+}
+
+
+/* ========================================================
+   3. NAVIGATION BAR & HEADER
+   Sticky header with modern logo & pure CSS mobile toggle
+   ======================================================== */
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+/* Brand Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--primary-blue-deep);
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--eco-green));
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+.logo-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.logo-text {
+    letter-spacing: -0.5px;
+}
+
+.logo-text .highlight {
+    color: var(--eco-green);
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--primary-blue-light);
+    color: var(--primary-blue);
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--primary-blue-border);
+    letter-spacing: 0.5px;
+}
+
+/* Nav Menu (Desktop) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: width var(--transition-fast);
+    border-radius: 2px;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.emergency-pill {
+    color: var(--alert-red-dark);
+    font-weight: 600;
+    background-color: var(--alert-red-light);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid #fca5a5;
+    transition: all var(--transition-fast);
+}
+
+.nav-link.emergency-pill:hover {
+    background-color: var(--alert-red);
+    color: var(--color-white);
+}
+
+.nav-link.emergency-pill::after {
+    display: none;
+}
+
+.nav-cta {
+    padding: 9px 18px;
+    font-size: 0.88rem;
+}
+
+/* Pure CSS Checkbox Hamburger Menu Toggle */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-blue-deep);
+    border-radius: 3px;
+    transition: all var(--transition-normal);
+}
+
+
+/* ========================================================
+   4. HERO SECTION
+   Hero background with modern overlay, pulse badge & CTA
+   ======================================================== */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-image: url('images/hero-city.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+    padding: 100px 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.92) 0%,
+        rgba(30, 58, 138, 0.85) 55%,
+        rgba(5, 150, 105, 0.75) 100%
+    );
+    backdrop-filter: blur(2px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.8);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--color-white);
+    letter-spacing: -1px;
+}
+
+.text-gradient {
+    background: linear-gradient(120deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    color: #e2e8f0;
+    max-width: 720px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.hero-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #f1f5f9;
+}
+
+.highlight-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--eco-green);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* ========================================================
+   5. CITY STATISTICS SECTION
+   Modern metric cards with hover lift & color badges
+   ======================================================== */
+.stats-section {
+    background-color: var(--color-white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 32px 24px;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-blue-border);
+}
+
+.stat-icon-wrapper {
+    width: 58px;
+    height: 58px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.stat-icon-wrapper.blue {
+    background-color: var(--primary-blue-light);
+    border: 1px solid var(--primary-blue-border);
+}
+
+.stat-icon-wrapper.green {
+    background-color: var(--eco-green-light);
+    border: 1px solid var(--eco-green-border);
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-text-heading);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 4px;
+}
+
+.stat-sub {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+
+/* ========================================================
+   6. CARDS GRID & SERVICE CARDS (SHARED STYLES)
+   Used across Mobility, Healthcare, Education, Services, Locations
+   ======================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-blue-border);
+}
+
+.card-image-box {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background-color: #cbd5e1;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .card-image-box img {
+    transform: scale(1.08);
+}
+
+.card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(6px);
+    letter-spacing: 0.4px;
+}
+
+.card-badge.green {
+    background: rgba(5, 150, 105, 0.9);
+}
+
+.card-badge.red-badge {
+    background: rgba(220, 38, 38, 0.9);
+}
+
+.card-body {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-text-heading);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.feature-list {
+    margin-bottom: 24px;
+    padding-left: 0;
+}
+
+.feature-list li {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.feature-list li::before {
+    content: '•';
+    color: var(--eco-green-dark);
+    font-size: 1.4rem;
+    position: absolute;
+    left: 4px;
+    top: -4px;
+}
+
+.card-link {
+    margin-top: auto;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap var(--transition-fast);
+}
+
+.card-link:hover {
+    color: var(--primary-blue-dark);
+    gap: 10px;
+}
+
+.card-link.highlight-red {
+    color: var(--alert-red);
+}
+
+.card-link.highlight-red:hover {
+    color: var(--alert-red-dark);
+}
+
+
+/* ========================================================
+   7. EMERGENCY HOTLINES SECTION (HIGH PRIORITY)
+   Dark high-contrast theme, pulsing hotline cards & toll-free calls
+   ======================================================== */
+.emergency-section {
+    background: linear-gradient(135deg, #0b1329 0%, #111827 50%, #064e3b 100%);
+    color: var(--color-white);
+    position: relative;
+}
+
+.emergency-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #fca5a5;
+    background-color: rgba(239, 68, 68, 0.2);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 12px;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.text-white {
+    color: var(--color-white);
+}
+
+.text-light {
+    color: #cbd5e1;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-bottom: 48px;
+}
+
+.emergency-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 36px 26px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.emergency-card.featured-emergency {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.2);
+}
+
+.emergency-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+
+.police-badge {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    border: 1px solid #3b82f6;
+}
+
+.medical-badge {
+    background-color: rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+}
+
+.fire-badge {
+    background-color: rgba(249, 115, 22, 0.2);
+    color: #fdba74;
+    border: 1px solid #f97316;
+}
+
+.emergency-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.emergency-title {
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: 8px;
+}
+
+.emergency-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.emergency-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.police-btn {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.medical-btn {
+    background: linear-gradient(135deg, #b91c1c, #dc2626);
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+}
+
+.fire-btn {
+    background: linear-gradient(135deg, #c2410c, #ea580c);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+}
+
+.emergency-btn:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+.call-icon {
+    font-size: 1.3rem;
+}
+
+.emergency-toll-label {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+/* Secondary Helplines Container */
+.secondary-emergency-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    text-align: center;
+}
+
+.secondary-title {
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.secondary-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sub-helpline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    transition: all var(--transition-fast);
+}
+
+.sub-helpline strong {
+    color: #38bdf8;
+    font-size: 0.95rem;
+}
+
+.sub-helpline:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+
+/* ========================================================
+   8. IMPORTANT CITY LOCATIONS
+   Landmark cards with metadata, pins & amenity tags
+   ======================================================== */
+.location-card .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.location-card .loc-hours {
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.landmark-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.amenity-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+
+/* ========================================================
+   9. CONTACT SECTION & CITIZEN HELPDESK
+   Responsive two-column grid with HTML5 form & office info
+   ======================================================== */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-title {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+    color: var(--color-text-heading);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text-heading);
+}
+
+.req {
+    color: var(--alert-red);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form-checkbox-group input[type="checkbox"] {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.form-checkbox-group label {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* Contact Info Card */
+.contact-info-card {
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, #e0f2fe 100%);
+    border: 1px solid var(--primary-blue-border);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.info-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--primary-blue-deep);
+}
+
+.info-intro {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.info-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-text-heading);
+    margin-bottom: 2px;
+}
+
+.info-item p {
+    font-size: 0.88rem;
+    color: var(--color-text-main);
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.info-item a {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+.quick-notice-box {
+    background-color: var(--color-white);
+    border-left: 4px solid var(--alert-red);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.notice-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--alert-red-dark);
+    margin-bottom: 4px;
+}
+
+.quick-notice-box p {
+    font-size: 0.82rem;
+    color: var(--color-text-main);
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+
+/* ========================================================
+   10. FOOTER
+   Modern 4-column footer, social icons, and copyright
+   ======================================================== */
+.footer {
+    background-color: #0b1120;
+    color: #94a3b8;
+    padding: 70px 0 30px;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.brand-col .footer-logo {
+    margin-bottom: 16px;
+}
+
+.footer-logo .logo-text {
+    color: var(--color-white);
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #94a3b8;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: #1e293b;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background-color: var(--primary-blue);
+    color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: #60a5fa;
+    padding-left: 4px;
+}
+
+.footer-emergency-list li {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-emergency-list span {
+    color: #cbd5e1;
+}
+
+.footer-emergency-list a {
+    color: #f87171;
+    font-weight: 700;
+}
+
+.footer-emergency-list a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid #1e293b;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.project-credit strong {
+    color: #38bdf8;
+}
+
+
+/* ========================================================
+   11. RESPONSIVE DESIGN (MEDIA QUERIES)
+   Full adaptability on Desktop, Tablet & Mobile Devices
+   ======================================================== */
+
+/* Tablet & Smaller Desktops (Max-width: 992px) */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+/* Tablets & Mobile Navigation (Max-width: 820px) */
+@media (max-width: 820px) {
+    /* Show Hamburger button */
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    /* Transform burger icon to 'X' when checked */
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px);
+    }
+
+    /* Collapse Menu into mobile slide-down drawer */
+    .nav-menu {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    /* When checkbox is checked, expand menu */
+    .nav-toggle:checked ~ .nav-menu {
+        max-height: 520px;
+        padding: 20px 24px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--color-border);
+        width: 100%;
+    }
+
+    .nav-link.emergency-pill {
+        display: inline-block;
+        margin: 10px 0;
+        width: auto;
+    }
+
+    .nav-cta {
+        margin-top: 14px;
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Phones (Max-width: 576px) */
+@media (max-width: 576px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-form-card {
+        padding: 24px 18px;
+    }
+
+    .contact-info-card {
+        padding: 24px 18px;
+    }
+}
